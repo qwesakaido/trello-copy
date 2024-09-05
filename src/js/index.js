@@ -8,7 +8,8 @@ const todoCards = document.querySelector('#todo-cards')
 const inProgressCards = document.querySelector('#in-progress-cards')
 const doneCards = document.querySelector('#done-cards')
 
-const saveTodoButton = document.querySelector('#saveTodoButton')
+const removeAllCardsButton = document.querySelector('#removeAllCardsButton')
+const addTodoForm = document.querySelector('#addTodoForm')
 
 let currentEditCard = null
 
@@ -19,7 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTime, 1000)
 })
 
-saveTodoButton.addEventListener('click', saveTodo)
+addTodoForm.addEventListener('submit', saveTodo)
+
+removeAllCardsButton.addEventListener('click', function() {
+    removeAllCards('done')
+})
 
 // Template
 
@@ -46,27 +51,34 @@ function createCardTemplate(card) {
 
 // Methods
 
-function saveTodo() {
-    const title = document.querySelector('#todo-title').value.trim()
-    const description = document.querySelector('#todo-description').value.trim()
-    const user = document.querySelector('#todo-user').value.trim()
+function saveTodo(event) {
+    event.preventDefault()
+
+    const { target } = event
+    const formData = new FormData(target)
+    const formDataEntries = Object.fromEntries(formData.entries())
 
     const newCard = {
         id: crypto.randomUUID(),
-        title,
-        description,
-        user,
+        ...formDataEntries,
         status: 'todo'
     }
 
     addCardToDOM(newCard)
-    console.log(newCard)
+    target.reset()
 
     const addTodoModalElement = document.querySelector('#addTodoModal')
     const addTodoModal = bootstrap.Modal.getInstance(addTodoModalElement)
     if (addTodoModal) {
         addTodoModal.hide()
     }
+
+    updateCounts()
+}
+
+function removeAllCards(column) {
+    const cardContainer = document.querySelector(`#${column}-cards`)
+    cardContainer.innerHTML = ''
 
     updateCounts()
 }

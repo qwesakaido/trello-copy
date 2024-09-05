@@ -48,7 +48,7 @@
                     </div>
                     <div class="card-body" id="done-cards"></div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-danger w-100" id="removeAllCardButton">Remove all</button>
+                        <button type="button" class="btn btn-danger w-100" id="removeAllCardsButton">Remove all</button>
                     </div>
                 </div>
             </div>
@@ -58,29 +58,32 @@
     <div class="modal fade" id="addTodoModal" tabindex="-1" aria-labelledby="addTodoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addTodoModalLabel">Add New Todo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="todo-title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="todo-title" placeholder="Enter title">
+                <form id="addTodoForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTodoModalLabel">Add New Todo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="todo-description" class="form-label">Description</label>
-                        <textarea class="form-control" id="todo-description" rows="3"
-                            placeholder="Enter description"></textarea>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="todo-title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="todo-title" name="title"
+                                placeholder="Enter title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="todo-description" class="form-label">Description</label>
+                            <textarea class="form-control" id="todo-description" name="description" rows="3"
+                                placeholder="Enter description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="todo-user" class="form-label">User</label>
+                            <input type="text" class="form-control" id="todo-user" name="user" placeholder="Enter user">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="todo-user" class="form-label">User</label>
-                        <input type="text" class="form-control" id="todo-user" placeholder="Enter user">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Todo</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveTodoButton">Save Todo</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
