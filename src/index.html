@@ -87,6 +87,40 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="editTodoModal" tabindex="-1" aria-labelledby="editTodoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="editTodoForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTodoModalLabel">Edit Todo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="edit-todo-title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="edit-todo-title" name="title"
+                                placeholder="Enter title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-todo-description" class="form-label">Description</label>
+                            <textarea class="form-control" id="edit-todo-description" name="description" rows="3"
+                                placeholder="Enter description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-todo-user" class="form-label">User</label>
+                            <input type="text" class="form-control" id="edit-todo-user" name="user"
+                                placeholder="Enter user">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
